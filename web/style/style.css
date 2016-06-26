@@ -9,7 +9,7 @@ body {
   margin-bottom:100px;
   margin-right:50px;
   margin-left:80px;
-  background-color:maroon;
+  background-color:rgba(192,192,192,0.3);
   height: 600px;
 }
 
@@ -32,7 +32,7 @@ body {
 	width:100px;
 	height: 100%;
 	float: left;
-	background-color: fuchsia;
+	background-color: rgba(192,192,192,0.3);
 }
 
 .centerContent {
