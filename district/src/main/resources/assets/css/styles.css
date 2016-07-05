@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url('../img/bg.jpeg');
+	background-repeat: repeat;
+}
+
+.mainContent {
+  margin-bottom:100px;
+  margin-right:50px;
+  margin-left:80px;
+  background-color:rgba(192,192,192,0.3);
+  height: 600px;
+}
+
+.header {
+	margin-top: 90px;
+	margin-left: 80px;
+}
+.cleardiv {
+	height: 2px;
+}
+.innerContent {
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-right:10px;
+  margin-left:10px;
+  height: 580px;
+}
+
+.leftContent {
+	width:100px;
+	height: 100%;
+	float: left;
+	background-color: rgba(192,192,192,0.3);
+}
+
+.centerContent {
+    float: left;
+	width:800px;
+	opacity:0.4;
+	overflow:hidden;
+	height: 100%;
+	background-image: url('../img/bg1.jpg');
+}
+
+.rightContent {
+	height: 100%;
+	overflow:inherit;
+	margin-left: 800px;
+    background-repeat: no-repeat;
+    background-image: url('../img/topShirt.png');
+}
