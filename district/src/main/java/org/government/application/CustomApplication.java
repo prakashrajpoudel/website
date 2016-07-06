@@ -2,6 +2,7 @@ package org.government.application;
 
 import org.government.configuration.ApplicationConfiguration;
 import org.government.resource.ExperimentResource;
+import org.government.resource.LoginResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +20,11 @@ public class CustomApplication extends Application<ApplicationConfiguration> {
 
 	@Override
 	public void run(ApplicationConfiguration configuration, Environment environment) throws Exception {
-		final ExperimentResource resource = new ExperimentResource(configuration.getTemplate(),
+		ExperimentResource resource = new ExperimentResource(configuration.getTemplate(),
 				configuration.getDefaultName());
+		LoginResource loginResource = new LoginResource();
 		environment.jersey().register(resource);
+		environment.jersey().register(loginResource);
 	}
 
 	@Override
