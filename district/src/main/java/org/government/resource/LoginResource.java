@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
 
 import org.government.api.User;
 
+import io.dropwizard.auth.Auth;
+
 
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
@@ -16,7 +18,7 @@ import org.government.api.User;
 public class LoginResource {
 
 	@POST
-	public Response login(User user) {
+	public Response login(@Auth User user) {
 		user.setFirstName("Test");
 		user.setLastName("Test");
 		return Response.status(Response.Status.CREATED).entity(user).build();
