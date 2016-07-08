@@ -36,6 +36,7 @@ public class CustomApplication extends Application<ApplicationConfiguration> {
 	            new BasicCredentialAuthFilter.Builder<User>()
 	                .setAuthenticator(new SimpleAuthenticator())
 	                .setAuthorizer(new ExampleAuthorizer())
+	                // TODO Investigate on seting Realm https://github.com/prakashrajpoudel/website/issues/5
 	                .setRealm("SUPER SECRET STUFF")
 	                .buildAuthFilter()));
 		  environment.jersey().register(RolesAllowedDynamicFeature.class);

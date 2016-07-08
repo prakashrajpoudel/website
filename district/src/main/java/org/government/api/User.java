@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public @Data class User implements Principal {
+@Data
+public class User implements Principal {
 	private String username;
 	private String firstName;
 	private String lastName;

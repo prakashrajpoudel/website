@@ -11,6 +11,7 @@ import io.dropwizard.auth.basic.BasicCredentials;
 public class SimpleAuthenticator implements Authenticator<BasicCredentials, User> {
 
 	public Optional<User> authenticate(BasicCredentials credentials) throws AuthenticationException {
+		// TODO https://github.com/prakashrajpoudel/website/issues/6
 		if ("secret".equals(credentials.getPassword())) {
 			return Optional.of(new User(credentials.getUsername(), "sample", "sample"));
 		}
