@@ -13,6 +13,8 @@ import org.government.api.Experiment;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 
+import io.dropwizard.auth.Auth;
+
 @Path("/experiment")
 @Produces(MediaType.APPLICATION_JSON)
 public class ExperimentResource {
@@ -28,7 +30,7 @@ public class ExperimentResource {
 
 	@GET
 	@Timed
-	public Experiment sayHello(@QueryParam("name") Optional<String> name) {
+	public Experiment sayHello(@Auth @QueryParam("name") Optional<String> name) {
 		final String value = String.format(template, name.or(defaultName));
 		return new Experiment(counter.incrementAndGet(), value);
 	}
