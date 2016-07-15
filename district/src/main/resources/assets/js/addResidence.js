@@ -1,27 +1,26 @@
 var app = angular.module('app', ['ngAnimate', 'ngTouch', 'ui.grid']);
 var mySample = angular.module('sample', []);
-mySample.controller('WelcomeController', ['$scope', '$http', function($scope, $http) {
-     console.log("Controller");
-      $scope.greeting = 'Welcome!';
+mySample.controller('WelcomeController', function($scope, $http, $location) {
+     var url = $location.$$protocol + "://" + $location.$$host + ":" + $location.$$port;
       $scope.submit = function () {
-        $http.post("//localhost:8080/api/experiment", {content : $scope.firstName}).then(function(response){
+        $http.post(url + "/api/experiment", {content : $scope.firstName}).then(function(response){
           $scope.greeting = '[Response from Server]' + response.data.content;
         })
         $scope.names = [{firstName: $scope.firstName, lastName : "Test"}];
       }
-  }]);
+  });
 
   var residence = angular.module('residence', []);
 
-  residence.controller('residenceController', ["$scope", "$http", function($scope, $http) {
+  residence.controller('residenceController', function($scope, $http, $location) {
       $scope.residenceList = [];
-
-    $http.get("//localhost:8080/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
+      var url = $location.$$protocol + "://" + $location.$$host + ":" + $location.$$port;
+    $http.get(url + "/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
       $scope.residenceList = response.data;
     })
 
       $scope.residenceAdd = function() {
-        $http.post("//localhost:8080/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
+        $http.post(url + "/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
           $scope.residenceList.push(response.data);
         })
           $scope.name = "";
@@ -36,4 +35,4 @@ mySample.controller('WelcomeController', ['$scope', '$http', function($scope, $h
               $scope.residenceList.push(x);
           });
       };
-  }]);
+  });
