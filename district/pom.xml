@@ -97,5 +97,10 @@
 			<version>1.16.8</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.1.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>

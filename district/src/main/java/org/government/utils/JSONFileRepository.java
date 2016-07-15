@@ -23,22 +23,15 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 
-public class JSONFileUtils {
-	private static final Logger LOGGER = LoggerFactory.getLogger(JSONFileUtils.class);
+public abstract class JSONFileRepository<T extends Entity> {
+	private static final Logger LOGGER = LoggerFactory.getLogger(JSONFileRepository.class);
 
 	private static final String FILENAME = "person.json";
-
-	public static final JSONFileUtils INSTANCE = new JSONFileUtils();
-
+	private ObjectMapper mapper;
 	private String fileName;
 
-	private JSONFileUtils() {
-
-	}
-
-	public List<Experiment> loadAll() {
-		ObjectMapper mapper = new ObjectMapper();
-		List<Experiment> allList = Lists.newArrayList();
+	public List<T> loadAll() {
+		mapper = new ObjectMapper();
 		Scanner scan = null;
 		try {
 			scan = new Scanner(new File(getFileName()));
@@ -48,7 +41,7 @@ public class JSONFileUtils {
 				userData.entrySet().forEach(entry -> {
 					try {
 						LOGGER.info("{}", entry.getValue());
-						allList.add(mapper.readValue((String) entry.getValue(), Experiment.class));
+						addEntity((String) entry.getValue());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -68,19 +61,22 @@ public class JSONFileUtils {
 				scan.close();
 			}
 		}
-		return allList;
+		return getAll();
 	}
 
-	public void save(Entity entity) {
-		ObjectMapper mapper = new ObjectMapper();
+	protected abstract List<T> getAll();
+
+	protected abstract void addEntity(String jsonString);
+
+	public T save(T entity) {
+		mapper = new ObjectMapper();
 		JSONObject obj = new JSONObject();
 		if (Objects.isNull(entity.getObjectUUID())) {
 			entity.setObjectUUID(UUID.randomUUID());
 		}
 		try {
 			obj.put(entity.getObjectUUID(), mapper.writeValueAsString(entity));
-			BufferedWriter writer = new BufferedWriter(
-					new FileWriter(getFileName(), true));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
 			writer.write(obj.toJSONString());
 			writer.newLine();
 			writer.flush();
@@ -89,13 +85,18 @@ public class JSONFileUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return entity;
 	}
 
-	private String getFileName() {
+	protected String getFileName() {
 		return Objects.isNull(fileName) ? FILENAME : fileName;
 	}
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	protected ObjectMapper getMapper() {
+		return mapper;
 	}
 }

@@ -7,6 +7,7 @@ import org.government.authentication.authorizer.ExampleAuthorizer;
 import org.government.configuration.ApplicationConfiguration;
 import org.government.resource.ExperimentResource;
 import org.government.resource.LoginResource;
+import org.government.resource.ResidenceResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,8 +31,10 @@ public class CustomApplication extends Application<ApplicationConfiguration> {
 		ExperimentResource resource = new ExperimentResource(configuration.getTemplate(),
 				configuration.getDefaultName());
 		LoginResource loginResource = new LoginResource();
+		ResidenceResource residenceResource = new ResidenceResource();
 		environment.jersey().register(resource);
 		environment.jersey().register(loginResource);
+		environment.jersey().register(residenceResource);
 		environment.jersey().register(new AuthDynamicFeature(
 	            new BasicCredentialAuthFilter.Builder<User>()
 	                .setAuthenticator(new SimpleAuthenticator())

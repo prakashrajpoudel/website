@@ -10,7 +10,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.government.api.Experiment;
-import org.government.utils.JSONFileUtils;
+import org.government.utils.JSONFileRepository;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
@@ -33,7 +33,6 @@ public class ExperimentResource {
 	@GET
 	@Timed
 	public Experiment sayHello(@Auth @QueryParam("name") Optional<String> name) {
-		JSONFileUtils.INSTANCE.loadAll();
 		final String value = String.format(template, name.or(defaultName));
 		return new Experiment(counter.incrementAndGet(), value);
 	}
@@ -41,7 +40,6 @@ public class ExperimentResource {
 	@POST
 	@Timed
 	public Experiment postHello(Experiment experiment) {
-		JSONFileUtils.INSTANCE.save(experiment);
 		return new Experiment(counter.incrementAndGet(), experiment.getContent());
 	}
 

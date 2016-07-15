@@ -5,7 +5,6 @@ import java.util.UUID;
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
 
 public class Experiment implements Entity {
 	private long id;
