@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="app">
+<html>
   <head>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
@@ -8,25 +8,22 @@
     <script src="//ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
     <script src="//ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
     <script src="//ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//ui-grid.info/release/ui-grid.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="style/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
   </head>
-  <body>
-    <!-- <div ng-controller="MainCtrl">
-      <div id="grid1" ui-grid="{ data: myData }" class="grid"></div>
+  <body ng-app="home">
+    <div >
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2 loginviewdiv">
+            <div ng-view></div>
+        </div>
     </div>
-  -->
-  <div ng-controller="MainCtrl">
-  You can use asterisks to fuzz-match, i.e. use "*z*" as your filter to show any row where that column contains a "z".
-<br>
-<br>
-<strong>Note:</strong> The third column has the filter input disabled, but actually has a filter set in code that requires every company to have an 'a' in their name.
-<br>
-<br>
-<button id='toggleFiltering' ng-click="toggleFiltering()" class="btn btn-success">Toggle Filtering</button>
-<div id="grid1" ui-grid="gridOptions" class="grid"></div>
 </div>
-        <script src="js/app.js"></script>
-  </body>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-cookies.js"></script>
+<script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="js/home.js"></script>
+</body>
 </html>
