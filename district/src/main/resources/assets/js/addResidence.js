@@ -12,11 +12,18 @@ mySample.controller('WelcomeController', ['$scope', '$http', function($scope, $h
   }]);
 
   var residence = angular.module('residence', []);
-  residence.controller('residenceController', function($scope) {
+
+  residence.controller('residenceController', ["$scope", "$http", function($scope, $http) {
       $scope.residenceList = [];
 
+    $http.get("//localhost:8080/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
+      $scope.residenceList = response.data;
+    })
+
       $scope.residenceAdd = function() {
-          $scope.residenceList.push({name:$scope.name, age: $scope.age, gender: $scope.gender});
+        $http.post("//localhost:8080/api/residence", {name:$scope.name, age: $scope.age, gender: $scope.gender}).then(function(response){
+          $scope.residenceList.push(response.data);
+        })
           $scope.name = "";
           $scope.age = "";
           $scope.gender = "";
@@ -29,4 +36,4 @@ mySample.controller('WelcomeController', ['$scope', '$http', function($scope, $h
               $scope.residenceList.push(x);
           });
       };
-  });
+  }]);
