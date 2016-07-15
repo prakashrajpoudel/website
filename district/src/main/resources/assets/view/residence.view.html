@@ -1,0 +1,26 @@
+<div ng-app="residence" ng-controller="residenceController">
+
+<h2>Add New Residence</h2>
+
+<form ng-submit="residenceAdd()">
+    <input type="text" ng-model="name" size="50" placeholder="Name">
+    <input type="text" ng-model="age" size="3" placeholder="Age">
+    <input type="text" ng-model="gender" size="10" placeholder="Gender">
+    <input type="submit" value="Add New">
+</form>
+
+<br>
+
+<table>
+  <th>S/N</th>
+  <th>Name</th>
+  <th>Age</th>
+  <th>Gender</th>
+  <tr ng-repeat="x in residenceList">
+    <td>{{ $index + 1 }}</td>
+    <td>{{ x.name }}</td>
+    <td>{{ x.age }}</td>
+    <td>{{ x.gender }}</td>
+  </tr>
+</table>
+</div>

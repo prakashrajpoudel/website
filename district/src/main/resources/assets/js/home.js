@@ -4,8 +4,22 @@
     angular
         .module('home', ['ngRoute', 'ngCookies'])
         .config(config)
-        .controller('LoginController', function(){
-          
+        .factory('authentication', function() {
+            return {
+              isAuthenticated: false,
+              user: null
+            }
+        })
+        .controller('LoginController',function($scope, $http, $location, authentication){
+          $scope.login = function () {
+            console.log("Logging in " + $scope.username  + " -- " + $scope.password);
+            $http.post("//localhost:8080/api/login", {username : $scope.username, password: $scope.password}).then(function(response){
+              console.log(response.data);
+              // $location.absUrl("//localhost:8080/addNewResidence.html");
+              window.location.href = "//localhost:8080/addNewResidence.html";
+              //https://github.com/prakashrajpoudel/website/issues/11
+            })
+          };
         })
         .run(run);
 
