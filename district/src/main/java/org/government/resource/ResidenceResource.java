@@ -13,9 +13,9 @@ import org.government.api.Residence;
 import org.government.dto.ResidenceDTO;
 import org.government.dto.converter.ResidenceDTOConverter;
 import org.government.manager.ResidenceJSONFileManager;
+import org.springframework.stereotype.Component;
 
-import com.codahale.metrics.annotation.Timed;
-
+@Component
 @Path("/residence")
 @Produces(MediaType.APPLICATION_JSON)
 public class ResidenceResource {
@@ -23,7 +23,6 @@ public class ResidenceResource {
 	private ResidenceDTOConverter residenceDTOConverter = new ResidenceDTOConverter();
 
 	@GET
-	@Timed
 	public Response getAll() {
 		List<Residence> listOfResidence = fileManager.getAll();
 		List<ResidenceDTO> listOfResidenceDTO = residenceDTOConverter.convertAll(listOfResidence);
@@ -31,7 +30,6 @@ public class ResidenceResource {
 	}
 
 	@POST
-	@Timed
 	public Response save(ResidenceDTO residencedto) {
 		Residence residence = residenceDTOConverter.convert(residencedto);
 		residence = fileManager.save(residence);
