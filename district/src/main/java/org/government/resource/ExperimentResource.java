@@ -6,39 +6,32 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.government.api.Experiment;
-import org.government.utils.JSONFileRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import com.codahale.metrics.annotation.Timed;
-import com.google.common.base.Optional;
 
-import io.dropwizard.auth.Auth;
 
+@Component
 @Path("/experiment")
 @Produces(MediaType.APPLICATION_JSON)
 public class ExperimentResource {
-	private final String template;
-	private final String defaultName;
-	private final AtomicLong counter;
-
-	public ExperimentResource(String template, String defaultName) {
-		this.template = template;
-		this.defaultName = defaultName;
-		this.counter = new AtomicLong();
-	}
+	private static final Logger LOGGER = LoggerFactory.getLogger(ExperimentResource.class);
+	private final AtomicLong counter = new AtomicLong();
 
 	@GET
-	@Timed
-	public Experiment sayHello(@Auth @QueryParam("name") Optional<String> name) {
-		final String value = String.format(template, name.or(defaultName));
-		return new Experiment(counter.incrementAndGet(), value);
+	public Response sayHello() {
+		LOGGER.info("Request");
+		final String value = "Test";
+		Experiment experiment = new Experiment(counter.incrementAndGet(), value);
+		return Response.status(Response.Status.CREATED).entity(experiment).build();
 	}
 
 	@POST
-	@Timed
 	public Experiment postHello(Experiment experiment) {
 		return new Experiment(counter.incrementAndGet(), experiment.getContent());
 	}
