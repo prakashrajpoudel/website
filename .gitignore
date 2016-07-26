@@ -1,0 +1,8 @@
+*.json
+*js.map
+*main.ts
+*node_modules*
+*.log
+*systemjs.config.js
+*web*
+*typings*
