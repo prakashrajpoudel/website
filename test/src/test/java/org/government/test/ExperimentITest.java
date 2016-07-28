@@ -13,7 +13,16 @@ public class ExperimentITest {
 	public void shouldRetrieveUserData() {
 		Response resp = get("/api/experiment");
 		JSONObject jsonObjectresponse = new JSONObject(resp.asString());
-		System.out.println(jsonObjectresponse.get("content"));
+		String content = (String) jsonObjectresponse.get("content");
+		Assert.assertEquals(content, "Test");
+	}
+	
+	
+	@Test
+	public void validateSchema() {
+		Response resp = get("/api/experiment");
+		JSONObject jsonObjectresponse = new JSONObject(resp.asString());
+		jsonObjectresponse.keySet().stream().forEach(System.out::println);
 		String content = (String) jsonObjectresponse.get("content");
 		Assert.assertEquals(content, "Test");
 	}
