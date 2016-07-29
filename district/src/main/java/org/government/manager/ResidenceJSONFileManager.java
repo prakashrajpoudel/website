@@ -7,12 +7,13 @@ import org.government.utils.JSONFileRepository;
 import org.government.utils.ResidenceJSONFileRepository;
 
 public class ResidenceJSONFileManager {
-	JSONFileRepository<Residence> residenceRepository = new ResidenceJSONFileRepository();
-	
+	JSONFileRepository residenceRepository = new ResidenceJSONFileRepository();
+
 	public Residence save(Residence residence) {
-		return residenceRepository.save(residence);
+		// return residenceRepository.save(residence);
+		return null;
 	}
-	
+
 	public List<Residence> getAll() {
 		return residenceRepository.loadAll();
 	}

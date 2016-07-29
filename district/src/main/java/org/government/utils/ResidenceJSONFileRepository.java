@@ -9,7 +9,7 @@ import org.government.api.Residence;
 
 import com.google.common.collect.Lists;
 
-public class ResidenceJSONFileRepository extends JSONFileRepository<Residence> {
+public class ResidenceJSONFileRepository extends JSONFileRepository {
 
 	private List<Residence> allList;
 
