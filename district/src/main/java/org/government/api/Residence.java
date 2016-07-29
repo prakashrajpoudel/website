@@ -1,15 +1,13 @@
 package org.government.api;
 
-import java.util.UUID;
-
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @javax.persistence.Entity
-public class Residence  {
-
+public class Residence extends Entity {
 	private String name;
 	private String age;
 	private String gender;
-	private UUID objectUUID;
 }

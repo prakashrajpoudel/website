@@ -13,14 +13,15 @@ import org.government.api.Residence;
 import org.government.dto.ResidenceDTO;
 import org.government.dto.converter.ResidenceDTOConverter;
 import org.government.manager.ResidenceJSONFileManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Path("/residence")
 @Produces(MediaType.APPLICATION_JSON)
 public class ResidenceResource {
-	private ResidenceJSONFileManager fileManager = new ResidenceJSONFileManager();
-	private ResidenceDTOConverter residenceDTOConverter = new ResidenceDTOConverter();
+	private @Autowired ResidenceJSONFileManager fileManager;
+	private @Autowired ResidenceDTOConverter residenceDTOConverter;
 
 	@GET
 	public Response getAll() {

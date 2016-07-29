@@ -3,18 +3,20 @@ package org.government.manager;
 import java.util.List;
 
 import org.government.api.Residence;
-import org.government.utils.JSONFileRepository;
-import org.government.utils.ResidenceJSONFileRepository;
+import org.government.repository.ResidenceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ResidenceJSONFileManager {
-	JSONFileRepository residenceRepository = new ResidenceJSONFileRepository();
+
+	private @Autowired ResidenceRepository residenceRepository;
 
 	public Residence save(Residence residence) {
-		// return residenceRepository.save(residence);
-		return null;
+		return residenceRepository.save(residence);
 	}
 
 	public List<Residence> getAll() {
-		return residenceRepository.loadAll();
+		return residenceRepository.findAll();
 	}
 }
