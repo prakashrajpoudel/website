@@ -5,8 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Experiment extends Entity {
-	private long id;
-
+	private String id;
 
 	@Length(max = 3)
 	private String content;
@@ -15,13 +14,13 @@ public class Experiment extends Entity {
 		// Jackson deserialization
 	}
 
-	public Experiment(long id, String content) {
+	public Experiment(String id, String content) {
 		this.id = id;
 		this.content = content;
 	}
 
 	@JsonProperty
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 

@@ -71,20 +71,20 @@ public abstract class JSONFileRepository<T extends Entity> {
 	public T save(T entity) {
 		mapper = new ObjectMapper();
 		JSONObject obj = new JSONObject();
-		if (Objects.isNull(entity.getObjectUUID())) {
-			entity.setObjectUUID(UUID.randomUUID());
-		}
-		try {
-			obj.put(entity.getObjectUUID(), mapper.writeValueAsString(entity));
-			BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
-			writer.write(obj.toJSONString());
-			writer.newLine();
-			writer.flush();
-			writer.close();
-		} catch (JsonProcessingException e1) {
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		if (Objects.isNull(entity.getObjectUUID())) {
+//			entity.setObjectUUID(UUID.randomUUID());
+//		}
+//		try {
+//			obj.put(entity.getObjectUUID(), mapper.writeValueAsString(entity));
+//			BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
+//			writer.write(obj.toJSONString());
+//			writer.newLine();
+//			writer.flush();
+//			writer.close();
+//		} catch (JsonProcessingException e1) {
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		return entity;
 	}
 
