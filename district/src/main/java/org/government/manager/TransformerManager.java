@@ -17,6 +17,7 @@ import jersey.repackaged.com.google.common.collect.Lists;
 
 @Component
 public class TransformerManager {
+	@SuppressWarnings("rawtypes")
 	private Map<Class<?>, ModelTransformer> instancesMap;
 
 	public TransformerManager() {
@@ -33,6 +34,7 @@ public class TransformerManager {
 		instancesMap.put(Residence.class, ResidenceTransformer.class.newInstance());
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T, M> T transform(M model) {
 		ModelTransformer<T, M> modelTransformer = instancesMap.get(model.getClass());
 		if (Objects.isNull(modelTransformer)) {

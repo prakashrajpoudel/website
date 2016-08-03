@@ -1,16 +1,10 @@
 package org.government;
 
-import java.io.File;
-
 import org.government.api.Residence;
 import org.government.repository.ResidenceRepository;
-import org.government.utils.JSONFileRepository;
-import org.government.utils.ResidenceJSONFileRepository;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.internal.matchers.Any;
 
 import jersey.repackaged.com.google.common.collect.Lists;
 

@@ -1,7 +1,5 @@
 package org.government.resource;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

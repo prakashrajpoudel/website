@@ -4,7 +4,6 @@ import static io.restassured.RestAssured.get;
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-
 import io.restassured.response.Response;
 
 public class ExperimentITest {
@@ -16,13 +15,11 @@ public class ExperimentITest {
 		String content = (String) jsonObjectresponse.get("content");
 		Assert.assertEquals(content, "Test");
 	}
-	
-	
+
 	@Test
 	public void validateSchema() {
 		Response resp = get("/api/experiment");
 		JSONObject jsonObjectresponse = new JSONObject(resp.asString());
-		jsonObjectresponse.keySet().stream().forEach(System.out::println);
 		String content = (String) jsonObjectresponse.get("content");
 		Assert.assertEquals(content, "Test");
 	}
