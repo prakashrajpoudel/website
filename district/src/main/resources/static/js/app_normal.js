@@ -1,3 +1,5 @@
+// DELETE ME
+
 var app = angular.module('app', ['ngTouch', 'ui.grid']);
 
 app.controller('MainCtrl', ['$scope', function ($scope) {

@@ -1,3 +1,4 @@
+// DELETE ME
 // inputbox.js
 var CommentBox = React.createClass({
   render: function() {

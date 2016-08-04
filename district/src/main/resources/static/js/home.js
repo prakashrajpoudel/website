@@ -1,3 +1,5 @@
+// REFERENCE : DELETE ME
+
 (function() {
 	'use strict';
 
@@ -37,7 +39,7 @@
 			templateUrl : 'view/login.view.html',
 			controllerAs : 'vm'
 		}).when('/addResidence', {
-			controller : 'AddResidenceController',
+			controller : residence.AddResidenceController,
 			templateUrl : 'view/residence.view.html',
 			controllerAs : 'vm'
 		}).otherwise({
