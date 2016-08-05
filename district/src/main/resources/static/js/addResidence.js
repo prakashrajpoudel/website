@@ -52,7 +52,7 @@ residence.controller('residenceController', function($scope, $http, $location) {
 		var self = this;
 		 $http.put(url + "/api/residence/paid/" + this.residence.id).then(function(response) {
 			console.log("Updated");
-			self.residence.isPaid = "paid";
+			self.residence.paid = "paid";
 		})
 	};
 

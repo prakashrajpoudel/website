@@ -16,5 +16,5 @@ public class Residence extends Entity {
 	private String gender;
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "residence_id")
-	private MoneyPaid moneyPaid;
+	private BalancePaid moneyPaid;
 }

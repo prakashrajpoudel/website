@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @javax.persistence.Entity
-public class MoneyPaid extends Entity {
-	private boolean isPaid;
+public class BalancePaid extends Entity {
+	private String paid;
 	private Date paidDate;
 }

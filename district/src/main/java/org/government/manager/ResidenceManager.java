@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
-import org.government.api.MoneyPaid;
+import org.government.api.BalancePaid;
 import org.government.api.Residence;
 import org.government.repository.ResidenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,11 +34,11 @@ public class ResidenceManager {
 
 	public Residence balancePaid(String uuid, String paid) {
 		Residence residence = residenceRepository.findById(uuid);
-		MoneyPaid moneyPaid = new MoneyPaid();
+		BalancePaid balancePaid = new BalancePaid();
 		// Change in-line string
-		moneyPaid.setPaid(StringUtils.equalsIgnoreCase(paid, "Paid"));
-		moneyPaid.setPaidDate(Calendar.getInstance().getTime());
-		residence.setMoneyPaid(moneyPaid);
+		balancePaid.setPaid(paid);
+		balancePaid.setPaidDate(Calendar.getInstance().getTime());
+		residence.setMoneyPaid(balancePaid);
 		residence = residenceRepository.save(residence);
 		return residence;
 	}
