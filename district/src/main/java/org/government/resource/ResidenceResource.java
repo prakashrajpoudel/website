@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -45,6 +46,14 @@ public class ResidenceResource {
 	@Path("/{id}")
 	public Response get(@PathParam("id") String uuid) {
 		Residence residence = residenceManager.get(uuid);
+		ResidenceDTO residenceDTO = transformerManager.transform(residence);
+		return Response.status(Response.Status.CREATED).entity(residenceDTO).build();
+	}
+
+	@PUT
+	@Path("/paid/{id}")
+	public Response paid(@PathParam("id") String uuid) {
+		Residence residence = residenceManager.balancePaid(uuid, "paid");
 		ResidenceDTO residenceDTO = transformerManager.transform(residence);
 		return Response.status(Response.Status.CREATED).entity(residenceDTO).build();
 	}

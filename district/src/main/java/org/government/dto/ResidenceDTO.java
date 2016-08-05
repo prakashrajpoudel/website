@@ -10,4 +10,6 @@ public class ResidenceDTO {
 	private @JsonProperty String age;
 	private @JsonProperty String gender;
 	private @JsonProperty UUID id;
+	private @JsonProperty String isPaid;
+	private @JsonProperty String paidDate;
 }

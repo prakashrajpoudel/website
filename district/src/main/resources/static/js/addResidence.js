@@ -32,11 +32,7 @@ residence.controller('residenceController', function($scope, $http, $location) {
 	$scope.residenceList = [];
 	var url = $location.$$protocol + "://" + $location.$$host + ":"
 			+ $location.$$port;
-	$http.get(url + "/api/residence", {
-		name : $scope.name,
-		age : $scope.age,
-		gender : $scope.gender
-	}).then(function(response) {
+	$http.get(url + "/api/residence").then(function(response) {
 		$scope.residenceList = response.data;
 	})
 
@@ -51,6 +47,13 @@ residence.controller('residenceController', function($scope, $http, $location) {
 		$scope.name = "";
 		$scope.age = "";
 		$scope.gender = "";
+	};
+	$scope.markPaid = function() {
+		var self = this;
+		 $http.put(url + "/api/residence/paid/" + this.residence.id).then(function(response) {
+			console.log("Updated");
+			self.residence.isPaid = "paid";
+		})
 	};
 
 	$scope.remove = function() {

@@ -16,6 +16,8 @@
 		<th>Name</th>
 		<th>Age</th>
 		<th>Gender</th>
+		<th>Paid</th>
+		<th></th>
 		<tr ng-repeat="residence in residenceList">
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{ $index + 1 }}</td>
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
@@ -24,6 +26,10 @@
 				}}</td>
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
 				residence.gender }}</td>
+			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
+				residence.isPaid }}</td>
+			<td ng-class-odd="'odd'" ng-class-even="'even'"><button
+					ng-click="markPaid()">Paid</button></td>
 		</tr>
 	</table>
 </div>
