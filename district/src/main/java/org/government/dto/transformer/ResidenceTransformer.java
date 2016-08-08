@@ -17,7 +17,7 @@ public class ResidenceTransformer extends ModelTransformer<ResidenceDTO, Residen
 		ResidenceDTO residenceDto = new ResidenceDTO();
 		BeanUtils.copyProperties(model, residenceDto);
 		residenceDto.setId(UUID.fromString(model.getId()));
-		BalancePaid paid = model.getMoneyPaid();
+		BalancePaid paid = model.getBalancePaid();
 		if (Objects.nonNull(paid)) {
 			residenceDto.setPaid(paid.getPaid());
 			// Removed simpleDateFormat from here

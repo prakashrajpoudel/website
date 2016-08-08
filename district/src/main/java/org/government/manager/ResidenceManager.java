@@ -24,6 +24,10 @@ public class ResidenceManager {
 		return residenceRepository.findAll();
 	}
 
+	public List<Residence> getAllBalancePaid() {
+		return residenceRepository.findByBalancePaidIsNotNull();
+	}
+
 	public Residence get(String uuid) {
 		Residence residence = residenceRepository.findById(uuid);
 		if (Objects.isNull(residence)) {
@@ -38,7 +42,7 @@ public class ResidenceManager {
 		// Change in-line string
 		balancePaid.setPaid(paid);
 		balancePaid.setPaidDate(Calendar.getInstance().getTime());
-		residence.setMoneyPaid(balancePaid);
+		residence.setBalancePaid(balancePaid);
 		residence = residenceRepository.save(residence);
 		return residence;
 	}

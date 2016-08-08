@@ -57,4 +57,12 @@ public class ResidenceResource {
 		ResidenceDTO residenceDTO = transformerManager.transform(residence);
 		return Response.status(Response.Status.CREATED).entity(residenceDTO).build();
 	}
+
+	@GET
+	@Path("/paid")
+	public Response getAllPaid() {
+		List<Residence> listOfResidence = residenceManager.getAllBalancePaid();
+		List<ResidenceDTO> listOfResidenceDTO = transformerManager.transform(listOfResidence);
+		return Response.status(Response.Status.OK).entity(listOfResidenceDTO).build();
+	}
 }
