@@ -22,9 +22,20 @@
 	<!-- Insert Home link in this page
 Navigate to grid URL and show grid
  -->
-	<div>
-		<div class="container">
-			<div ng-view></div>
+	<div class="container" ng-controller="menuController">
+		<ul class="topnav" id="myTopnav">
+			<li><a class="active" href="#/">Home</a></li>
+			<li><a href="#/login">Login</a></li>
+			<li><a href="#/addResidence">AddResidence</a></li>
+			<li><a href="#about">About</a></li>
+			<li class="icon"><a href="javascript:void(0);"
+				style="font-size: 15px;" ng-click="expandMenu()">☰</a></li>
+		</ul>
+
+		<div style="padding-left: 16px">
+			<div class="container">
+				<div ng-view></div>
+			</div>
 		</div>
 	</div>
 	<script
