@@ -13,8 +13,9 @@ app
 				[
 						'$scope',
 						'$http',
+						'$location',
 						'uiGridConstants',
-						function($scope, $http, uiGridConstants) {
+						function($scope, $http, $location, uiGridConstants) {
 							var today = new Date();
 							var nextWeek = new Date();
 							nextWeek.setDate(nextWeek.getDate() + 7);
@@ -128,10 +129,11 @@ app
 											width : '15%',
 										} ]
 							};
-
+							var url = $location.$$protocol + "://" + $location.$$host + ":"
+							+ $location.$$port;
 							$http
-									.get(
-											'http://localhost:8080/api/residence/paid')
+									.get(url + 
+											'/api/residence/paid')
 									.success(
 											function(data) {
 												$scope.gridOptions.data = data;
