@@ -1,7 +1,12 @@
 // DELETE ME
 
-var app = angular.module('customGrid', [ 'ngAnimate', 'ngTouch', 'ui.grid' ]);
-
+var app = angular.module('gridView', [ 'ngAnimate', 'ngTouch', 'ui.grid' ]);
+app.config(function($routeProvider) {
+	$routeProvider.when('/receivedList', {
+		templateUrl : 'templates/grid.view.html',
+		controller : 'gridController'
+	});
+});
 app
 		.controller(
 				'gridController',

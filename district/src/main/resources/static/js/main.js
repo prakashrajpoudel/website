@@ -1,5 +1,5 @@
 var main = angular.module('main',
-		[ 'ngRoute', 'login', 'residence', 'welcome', 'customGrid' ]).config(
+		[ 'ngRoute', 'login', 'residence', 'welcome', 'gridView' ]).config(
 		function($routeProvider) {
 			$routeProvider
 			// route for the contact page
