@@ -20,6 +20,14 @@ public class ResidenceManager {
 		return residenceRepository.save(residence);
 	}
 
+	public Residence update(Residence residence) {
+		return residenceRepository.save(residence);
+	}
+
+	public void delete(String uuid) {
+		residenceRepository.delete(uuid);
+	}
+
 	public List<Residence> getAll() {
 		return residenceRepository.findAll();
 	}

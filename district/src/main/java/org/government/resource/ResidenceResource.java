@@ -3,6 +3,7 @@ package org.government.resource;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -42,12 +43,27 @@ public class ResidenceResource {
 		return Response.status(Response.Status.CREATED).entity(residencedto).build();
 	}
 
+	@PUT
+	public Response update(ResidenceDTO residencedto) {
+		Residence residence = transformerManager.transform(residencedto);
+		residence = residenceManager.save(residence);
+		residencedto = transformerManager.transform(residence);
+		return Response.status(Response.Status.CREATED).entity(residencedto).build();
+	}
+
 	@GET
 	@Path("/{id}")
 	public Response get(@PathParam("id") String uuid) {
 		Residence residence = residenceManager.get(uuid);
 		ResidenceDTO residenceDTO = transformerManager.transform(residence);
 		return Response.status(Response.Status.CREATED).entity(residenceDTO).build();
+	}
+
+	@DELETE
+	@Path("/{id}")
+	public Response delete(@PathParam("id") String uuid) {
+		residenceManager.delete(uuid);
+		return Response.noContent().build();
 	}
 
 	@PUT
