@@ -92,23 +92,53 @@ ul.topnav li.icon {
 
 @media screen and (max-width:680px) {
 	ul
+	
+	
+	
+	
 	.topnav
+	
+	
 	 
+	
+	
 	li
+	
+	
+	
+	
 	:not
+	
+	
 	 
+	
+	
 	(
 	:first-child
+	
+	
 	 
+	
+	
 	)
 	{
 	display
+	
+	
+	
+	
 	:
+	
+	
 	 
+	
+	
 	none
+	
+	
+	
+	
 	;
-	
-	
 }
 
 ul.topnav li.icon {
@@ -138,6 +168,13 @@ ul.topnav li.icon {
 /*
 Menu CSS END
 */
-.clear{
+.clear {
 	height: 20px;
+}
+
+.navigateSpan {
+	cursor: pointer;
+	cursor: hand;
+	text-decoration: underline;
+	color: blue;
 }

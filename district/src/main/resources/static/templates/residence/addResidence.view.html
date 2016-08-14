@@ -1,8 +1,8 @@
-<div ng-app="residence" ng-controller="residenceController">
+<div ng-app="residence" ng-controller="addResidenceController">
 
 	<h2>Add New Residence</h2>
 
-	<form ng-submit="residenceAdd()">
+	<form ng-submit="addResidence()">
 		<input type="text" ng-model="name" size="50" placeholder="Name">
 		<input type="text" ng-model="age" size="3" placeholder="Age">
 		<input type="text" ng-model="gender" size="10" placeholder="Gender">
@@ -17,11 +17,12 @@
 		<th>Age</th>
 		<th>Gender</th>
 		<th>Paid</th>
-		<th></th>
+		<th>Operations</th>
 		<tr ng-repeat="residence in residenceList">
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{ $index + 1 }}</td>
-			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
-				residence.name }}</td>
+			<td ng-class-odd="'odd'" ng-class-even="'even'"><span
+				class="navigateSpan" ng-click="naviageToUpdate()">{{
+					residence.name }}</span></td>
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{ residence.age
 				}}</td>
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
@@ -29,7 +30,8 @@
 			<td ng-class-odd="'odd'" ng-class-even="'even'">{{
 				residence.paid }}</td>
 			<td ng-class-odd="'odd'" ng-class-even="'even'"><button
-					ng-click="markPaid()">Paid</button></td>
+					ng-click="markPaid()">Paid</button><span> | </span><button
+					ng-click="remove($index)">Delete</button></td>
 		</tr>
 	</table>
 </div>

@@ -4,7 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.commons.lang3.StringUtils;
 import org.government.api.BalancePaid;
 import org.government.api.Residence;
 import org.government.repository.ResidenceRepository;
@@ -21,6 +20,7 @@ public class ResidenceManager {
 	}
 
 	public Residence update(Residence residence) {
+		// TODO copy only non-null properties
 		return residenceRepository.save(residence);
 	}
 
