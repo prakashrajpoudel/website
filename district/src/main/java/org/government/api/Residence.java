@@ -1,25 +1,20 @@
 package org.government.api;
 
-import java.util.UUID;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class Residence implements Entity {
-
+@EqualsAndHashCode(callSuper = true)
+@javax.persistence.Entity
+public class Residence extends Entity {
 	private String name;
 	private String age;
 	private String gender;
-	private UUID objectUUID;
-
-	@Override
-	public UUID getObjectUUID() {
-		return objectUUID;
-	}
-
-	@Override
-	public void setObjectUUID(UUID objectUUID) {
-		this.objectUUID = objectUUID;
-	}
-
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "balance_id")
+	private BalancePaid balancePaid;
 }

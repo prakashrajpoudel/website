@@ -1,3 +1,4 @@
+// DELETE ME
 function Hello($scope, $http) {
 $http.get('//localhost:8080/api/experiment').
   success(function(data) {

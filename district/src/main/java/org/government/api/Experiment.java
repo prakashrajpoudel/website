@@ -1,14 +1,11 @@
 package org.government.api;
 
-import java.util.UUID;
-
 import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Experiment implements Entity {
-	private long id;
-	private UUID objectUUID;
+public class Experiment extends Entity {
+	private String id;
 
 	@Length(max = 3)
 	private String content;
@@ -17,13 +14,13 @@ public class Experiment implements Entity {
 		// Jackson deserialization
 	}
 
-	public Experiment(long id, String content) {
+	public Experiment(String id, String content) {
 		this.id = id;
 		this.content = content;
 	}
 
 	@JsonProperty
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
@@ -32,12 +29,4 @@ public class Experiment implements Entity {
 		return content;
 	}
 
-	@Override
-	public UUID getObjectUUID() {
-		return objectUUID;
-	}
-
-	public void setObjectUUID(UUID objectUUID) {
-		this.objectUUID = objectUUID;
-	}
 }

@@ -1,3 +1,4 @@
+// DELETE ME
 // tutorial2.js
 var CommentList = React.createClass({
   render: function() {

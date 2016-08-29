@@ -1,9 +1,18 @@
 package org.government.api;
 
-import java.util.UUID;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-public interface Entity {
-	UUID getObjectUUID();
+import org.hibernate.annotations.GenericGenerator;
 
-	void setObjectUUID(UUID objectUUID);
+import lombok.Data;
+
+@Data
+@MappedSuperclass
+public abstract class Entity {
+	@Id
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "uuid2")
+	private String id;
 }

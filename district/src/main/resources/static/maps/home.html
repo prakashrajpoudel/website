@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+<script src="//ui-grid.info/docs/grunt-scripts/csv.js"></script>
+<script src="//ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+<script src="//ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+<script src="//ui-grid.info/release/ui-grid.js"></script>
+
+<link rel="stylesheet" href="//ui-grid.info/release/ui-grid.css"
+	type="text/css">
+<link rel="stylesheet" href="css/main.css" type="text/css">
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<style>
+#map {
+	width: 30%;
+	height: 200px;
+}
+</style>
+</head>
+<body>
+	<h3>My Google Maps Demo</h3>
+	<div id="map"></div>
+	<script>
+		function initMap() {
+			var mapDiv = document.getElementById('map');
+			var map = new google.maps.Map(mapDiv, {
+				center : {
+					lat : 27.975327,
+					lng : 84.267845
+				},
+				zoom : 14
+			});
+		}
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-tZJUYpM_DBcjPtYgE-NMRFx9TKTZ_rk&callback=initMap">
+		
+	</script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-cookies.js"></script>
+	<script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<div ng-app="residence" ng-controller="updateResidenceController">
+
+	<h2 class="pageHeader">Update Residence</h2>
+
+	<form ng-submit="updateResidence()">
+		<div class="labelDiv">
+			<label>Name :</label>
+		</div>
+		<div class="contentDiv">
+			<input id="name" type="text" ng-model="residence.name" size="50"
+				placeholder="Name">
+		</div>
+		<div class="labelDiv">
+			<label>Age : </label>
+		</div>
+		<div class="contentDiv">
+			<input type="text" ng-model="residence.age" size="3"
+				placeholder="Age">
+		</div>
+		<div class="labelDiv">
+			<label>Gender : </label>
+		</div>
+		<div class="contentDiv">
+			<input type="text" ng-model="residence.gender" size="10"
+				placeholder="Gender">
+		</div>
+		<div class="labelDiv">
+			<label>Paid : </label>
+		</div>
+		<div class="contentDiv">
+			<input type="text" ng-model="residence.paid" size="10"
+				placeholder="Paid">
+		</div>
+		<div>
+			<label>Location</label>
+		</div>
+		<div>
+			<div id="location"></div>
+		</div>
+		<div class="labelDiv emptyLabel"></div>
+		<div class="contentDiv">
+			<input type="submit" value="Update">
+		</div>
+
+	</form>
+</div>

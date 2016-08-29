@@ -9,5 +9,7 @@ public class ResidenceDTO {
 	private @JsonProperty String name;
 	private @JsonProperty String age;
 	private @JsonProperty String gender;
-	private @JsonProperty UUID objectUUID;
+	private @JsonProperty UUID id;
+	private @JsonProperty String paid;
+	private @JsonProperty String paidDate;
 }

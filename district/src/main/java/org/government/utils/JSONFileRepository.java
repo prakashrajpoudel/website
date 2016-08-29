@@ -1,27 +1,20 @@
 package org.government.utils;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
-import java.util.UUID;
 
 import org.government.api.Entity;
-import org.government.api.Experiment;
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.Lists;
 
 public abstract class JSONFileRepository<T extends Entity> {
 	private static final Logger LOGGER = LoggerFactory.getLogger(JSONFileRepository.class);
@@ -30,6 +23,7 @@ public abstract class JSONFileRepository<T extends Entity> {
 	private ObjectMapper mapper;
 	private String fileName;
 
+	@SuppressWarnings("unchecked")
 	public List<T> loadAll() {
 		mapper = new ObjectMapper();
 		Scanner scan = null;
@@ -70,21 +64,20 @@ public abstract class JSONFileRepository<T extends Entity> {
 
 	public T save(T entity) {
 		mapper = new ObjectMapper();
-		JSONObject obj = new JSONObject();
-		if (Objects.isNull(entity.getObjectUUID())) {
-			entity.setObjectUUID(UUID.randomUUID());
-		}
-		try {
-			obj.put(entity.getObjectUUID(), mapper.writeValueAsString(entity));
-			BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
-			writer.write(obj.toJSONString());
-			writer.newLine();
-			writer.flush();
-			writer.close();
-		} catch (JsonProcessingException e1) {
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		if (Objects.isNull(entity.getObjectUUID())) {
+//			entity.setObjectUUID(UUID.randomUUID());
+//		}
+//		try {
+//			obj.put(entity.getObjectUUID(), mapper.writeValueAsString(entity));
+//			BufferedWriter writer = new BufferedWriter(new FileWriter(getFileName(), true));
+//			writer.write(obj.toJSONString());
+//			writer.newLine();
+//			writer.flush();
+//			writer.close();
+//		} catch (JsonProcessingException e1) {
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		return entity;
 	}
 

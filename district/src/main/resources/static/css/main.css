@@ -1,4 +1,258 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+
+body {
+	background-color: #fff;
+	-webkit-font-smoothing: antialiased;
+	font: normal 14px Roboto, arial, sans-serif;
+	margin: 0;
+}
+
+.container {
+	padding: 25px;
+	position: fixed;
+}
+
+.form-login {
+	background-color: #EDEDED;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 15px;
+	border-color: #d2d2d2;
+	border-width: 5px;
+	box-shadow: 0 1px 0 #cfcfcf;
+}
+
+h4 {
+	border: 0 solid #fff;
+	border-bottom-width: 1px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.form-control {
+	border-radius: 10px;
+}
+
+.wrapper {
+	text-align: center;
+}
 
 .header-filtered {
-  color: blue;
+	color: blue;
+}
+
+.odd {
+	border-color: #dddddd;
+}
+
+.even {
+	border-color: #d2d2d2;
+}
+
+.welcometext {
+	border-color: #7f7f7f;
+	text-align: center;
+	font-size: 70px;
+	background-color: #e6dddd;
+}
+/*
+Menu CSS
+*/
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+ul.topnav li {
+	float: left;
+}
+
+ul.topnav li a {
+	display: inline-block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+ul.topnav li a:hover {
+	background-color: #555;
+}
+
+ul.topnav li.icon {
+	display: none;
+}
+
+@media screen and (max-width:680px) {
+	ul
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.topnav
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	li
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	:not
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	(
+	:first-child
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	)
+	{
+	display
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	:
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	none
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	;
+}
+
+ul.topnav li.icon {
+	float: right;
+	display: inline-block;
+}
+
+}
+@media screen and (max-width:680px) {
+	ul.topnav.responsive {
+		position: relative;
+	}
+	ul.topnav.responsive li.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	ul.topnav.responsive li {
+		float: none;
+		display: inline;
+	}
+	ul.topnav.responsive li a {
+		display: block;
+		text-align: left;
+	}
+}
+/*
+Menu CSS END
+*/
+.clear {
+	height: 20px;
+}
+
+.navigateSpan {
+	cursor: pointer;
+	cursor: hand;
+	text-decoration: underline;
+	color: blue;
+}
+
+.emptyLabel {
+	padding: 10px;
+}
+
+.labelDiv {
+	width: 10%;
+	padding-right: 10px;
+	text-align: right;
+	float: left;
+}
+
+.contentDiv {
+	width: 60%;
+}
+
+.pageHeader {
+	padding: 10px 0 10px 10px;
+	position: relative;
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	border-radius: 4px;
+	width: 60%;
+}
+
+#location {
+	width: 50%;
+	height: 300px;
 }
