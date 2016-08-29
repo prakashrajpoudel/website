@@ -17,8 +17,8 @@
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <style>
 #map {
-	width: 50%;
-	height: 300px;
+	width: 30%;
+	height: 200px;
 }
 </style>
 </head>
@@ -34,33 +34,6 @@
 					lng : 84.267845
 				},
 				zoom : 14
-			});
-			var latLng = new google.maps.LatLng(27.975327, 84.267845);
-			var marker = new google.maps.Marker({
-				position : latLng,
-				map : map
-			//icon: ''
-			});
-			var sampleText = "HGello";
-			var popup = new google.maps.InfoWindow({
-				content : sampleText
-			});
-			google.maps.event.addListener(marker, "mouseover", function(event) {
-				popup.setContent("Operate on marker");
-				popup.open(map, this);
-				//alert(this.position);
-			});
-			google.maps.event.addListener(marker, "mouseout", function(event) {
-				popup.close(map, this);
-			});
-			google.maps.event.addListener(map, 'click', function(event) {
-				popup.setContent("Marker on " + event.latLng);
-				new google.maps.Marker({
-					position : event.latLng,
-					map : map
-				//icon: ''
-				});
-				popup.open(map, this);
 			});
 		}
 	</script>
