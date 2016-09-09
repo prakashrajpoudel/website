@@ -1,56 +1,31 @@
-<!doctype html>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
 <html>
 <head>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
-<script
-	src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
-<script src="//ui-grid.info/docs/grunt-scripts/csv.js"></script>
-<script src="//ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
-<script src="//ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
-<script src="//ui-grid.info/release/ui-grid.js"></script>
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/main.css" type="text/css">
-<link rel="stylesheet" href="css/ui.css" type="text/css">
-<link rel="stylesheet" href="css/styles.css" type="text/css">
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+    <link rel="stylesheet"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/ui.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
 </head>
-<body ng-app="main">
-	<!-- Insert Home link in this page
-Navigate to grid URL and show grid
- -->
-	<div class="container" ng-controller="menuController">
-		<ul class="topnav" id="myTopnav">
-			<li><a class="active" href="#/">Home</a></li>
-			<li><a href="#/login">Login</a></li>
-			<li><a href="#/addResidence">AddResidence</a></li>
-			<li><a href="#/receivedList">Received List</a></li>
-			<li class="icon"><a href="javascript:void(0);"
-				style="font-size: 15px;" ng-click="expandMenu()">☰</a></li>
-		</ul>
+<body>
 
-		<div style="padding-left: 16px">
-			<div class="container">
-				<div ng-view></div>
-			</div>
-		</div>
-	</div>
-	<script
-		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
-	<script
-		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-cookies.js"></script>
-	<script src="//code.jquery.com/jquery-3.1.0.min.js"></script>
-	<script src="js/welcome.js"></script>
-	<script src="js/receivedGridView.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/residence/residence.js"></script>
-	<script src="js/residence/addResidenceController.js"></script>
-	<script src="js/residence/updateResidenceController.js"></script>
-	<script src="js/main.js"></script>
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-tZJUYpM_DBcjPtYgE-NMRFx9TKTZ_rk">
-	</script>
+<div class="container">
+    <div id="liked"></div>
+    <div id="menu"></div>
+    <div style="padding-left: 16px">
+        <div class="container">
+            <div id="main"></div>
+        </div>
+    </div>
+</div>
+<script type="text/babel" src="js/react/residence/addResidence.js"></script>
+<script type="text/babel" src="js/react/welcome.js"></script>
 </body>
 </html>
+
